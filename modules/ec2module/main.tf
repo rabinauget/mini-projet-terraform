@@ -13,6 +13,7 @@ resource "aws_instance" "myec2" {
   instance_type   = var.instance_type
   key_name        = "terraform-training"
   tags            = var.aws_common_tag
+  security_groups = [module.sgmodule.allow_http_https_ssh.name]
 
   provisioner "remote-exec" {
     inline = [ 

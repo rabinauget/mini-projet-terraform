@@ -21,4 +21,5 @@ variable "connexion_type" {
 variable "connexion_username" {
   type = string
   description = "username used by terraform for ec2 access"
+  default = "ec2-user"
 }

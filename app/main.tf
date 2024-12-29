@@ -23,3 +23,25 @@ provider "aws" {
   profile                  = "default"
 }
 
+module "miniec2" {
+  source = "../modules/ec2module"
+  instance_type = "t2.micro"
+  aws_common_tag = {
+    Name = "mini-projet-terraform"
+  }
+}
+
+output "myminiec2" {
+  value = module.miniec2
+}
+
+module "minieip" {
+  source = "../modules/eipmodule"
+  instance_id = module.miniec2.id
+}
+
+resource "aws_volume_attachment" "ebs" {
+  device_name = "/dev/sdh"
+  volume_id = module.ebsmini
+  instance_id = myminiec2.id
+}
