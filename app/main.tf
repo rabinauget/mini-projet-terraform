@@ -12,14 +12,14 @@ terraform {
     bucket = "terraform-backend-auget"
     key = "mini-projet-terraform.tfstate"
     region = "us-east-1"
-    shared_credentials_files = ["../../.secrets/credentials"]
+    shared_credentials_files = ["../.secrets/credentials"]
     profile = "default"
   }
 }
 
 provider "aws" {
   region                   = "us-east-1"
-  shared_credentials_files = ["../../.secrets/credentials"]
+  shared_credentials_files = ["../.secrets/credentials"]
   profile                  = "default"
 }
 
