@@ -31,4 +31,5 @@ resource "aws_instance" "myec2" {
 
 module "mysg" {
   source = "../sgmodule"
+  sg_name = "mini-projet-sg"
 }
