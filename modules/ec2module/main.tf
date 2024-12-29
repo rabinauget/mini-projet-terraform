@@ -33,3 +33,7 @@ module "mysg" {
   source = "../sgmodule"
   sg_name = var.sgec2
 }
+
+output "sgname" {
+  value = aws_security_group.allow_http_https_ssh.name
+}

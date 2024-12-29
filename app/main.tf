@@ -23,10 +23,6 @@ provider "aws" {
   profile                  = "default"
 }
 
-output "myminisg" {
-  value = module.mysg.name
-}
-
 module "miniec2" {
   source = "../modules/ec2module"
   instance_type = "t2.micro"
@@ -47,6 +43,6 @@ module "minieip" {
 
 resource "aws_volume_attachment" "ebs" {
   device_name = "/dev/sdh"
-  volume_id = module.ebs
+  volume_id = module.ebs.id
   instance_id = module.miniec2.id
 }
