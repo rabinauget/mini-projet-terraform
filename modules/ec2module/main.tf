@@ -23,7 +23,7 @@ resource "aws_instance" "myec2" {
     connection {
       type = var.connexion_type
       user = var.connexion_username
-      private_key = file("../../.secrets/terraform-training.pem")
+      private_key = file("../.secrets/terraform-training.pem")
       host = self.public_ip
     }
   }
