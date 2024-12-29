@@ -7,7 +7,3 @@ resource "aws_ebs_volume" "ebsmini" {
       name = var.ebs_volume_tag
     }
 }
-
-output "ebs" {
-  value = aws_ebs_volume.ebsmini
-}

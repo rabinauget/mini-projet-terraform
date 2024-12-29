@@ -31,8 +31,8 @@ module "miniec2" {
   }
 }
 
-output "myminiec2" {
-  value = module.miniec2
+module "ebs" {
+  source = "../modules/ebsmobule"
 }
 
 module "minieip" {
@@ -42,6 +42,6 @@ module "minieip" {
 
 resource "aws_volume_attachment" "ebs" {
   device_name = "/dev/sdh"
-  volume_id = module.ebsmini
-  instance_id = myminiec2.id
+  volume_id = module.ebs
+  instance_id = module.miniec2.id
 }

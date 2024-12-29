@@ -13,7 +13,7 @@ resource "aws_instance" "myec2" {
   instance_type   = var.instance_type
   key_name        = "terraform-training"
   tags            = var.aws_common_tag
-  security_groups = [module.sgmodule.allow_http_https_ssh.name]
+  security_groups = [module.mysg.allow_http_https_ssh.name]
 
   provisioner "remote-exec" {
     inline = [ 
@@ -21,10 +21,14 @@ resource "aws_instance" "myec2" {
       "sudo systemctl start nginx"
     ]
     connection {
-      type = var.connexion_types
+      type = var.connexion_type
       user = var.connexion_username
       private_key = file("../../.secrets/terraform-training.pem")
       host = self.public_ip
     }
   }
+}
+
+module "mysg" {
+  source = "../sgmodule"
 }
