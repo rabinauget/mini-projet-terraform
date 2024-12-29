@@ -13,7 +13,7 @@ resource "aws_instance" "myec2" {
   instance_type   = var.instance_type
   key_name        = "terraform-training"
   tags            = var.aws_common_tag
-  security_groups = [module.mysg.sgname]
+  security_groups = [module.mysg.sgname.id]
 
   provisioner "remote-exec" {
     inline = [ 
