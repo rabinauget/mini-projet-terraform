@@ -33,7 +33,7 @@ module "miniec2" {
   aws_common_tag = {
     Name = "mini-projet-terraform"
   }
-  sgname = "mini-projet-sg"
+  sgec2 = "mini-projet-sg"
 }
 
 module "ebs" {

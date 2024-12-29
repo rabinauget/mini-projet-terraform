@@ -24,7 +24,7 @@ variable "connexion_username" {
   default = "ec2-user"
 }
 
-variable "sgname" {
+variable "sgec2" {
   type        = string
   description = "Security group for mini-projet-terraform"
   default     = "mini-projet"

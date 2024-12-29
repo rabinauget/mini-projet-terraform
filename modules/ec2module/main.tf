@@ -31,5 +31,5 @@ resource "aws_instance" "myec2" {
 
 module "mysg" {
   source = "../sgmodule"
-  sg_name = var.sgname
+  sg_name = var.sgec2
 }
