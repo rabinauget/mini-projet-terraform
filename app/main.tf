@@ -23,12 +23,17 @@ provider "aws" {
   profile                  = "default"
 }
 
+output "myminisg" {
+  value = module.mysg.name
+}
+
 module "miniec2" {
   source = "../modules/ec2module"
   instance_type = "t2.micro"
   aws_common_tag = {
     Name = "mini-projet-terraform"
   }
+  sg_name = "mini-projet-sg"
 }
 
 module "ebs" {

@@ -23,3 +23,9 @@ variable "connexion_username" {
   description = "username used by terraform for ec2 access"
   default = "ec2-user"
 }
+
+variable "sgname" {
+  type        = string
+  description = "Security group for mini-projet-terraform"
+  default     = "mini-projet"
+}

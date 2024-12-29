@@ -13,7 +13,7 @@ resource "aws_instance" "myec2" {
   instance_type   = var.instance_type
   key_name        = "terraform-training"
   tags            = var.aws_common_tag
-  security_groups = [minisg.name]
+  security_groups = [module.mysg.sgname]
 
   provisioner "remote-exec" {
     inline = [ 
@@ -31,5 +31,5 @@ resource "aws_instance" "myec2" {
 
 module "mysg" {
   source = "../sgmodule"
-  sg_name = "mini-projet-sg"
+  sg_name = var.sgname
 }
